@@ -1,47 +1,42 @@
-<?php 
-	session_start(); 
-
-	if (!isset($_SESSION['username'])) {
-		$_SESSION['msg'] = "You must log in first";
-		header('location: login.php');
-	}
-
-	if (isset($_GET['logout'])) {
-		session_destroy();
-		unset($_SESSION['username']);
-		header("location: login.php");
-	}
-
-?>
-
+<?php include('server.php') ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel = "icon" href = "vendor/fontawesome/svgs/solid/user-shield.ico" type = "image/x-icon">
+	<title>Grievance Cell</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:500,700" rel="stylesheet">
+	<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="vendor/fontawesome/css/all.css">
+	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
-	<div class="container">
-		
-		<?php if (isset($_SESSION['success'])) : ?>
-			<div class="error success" >
-				<h3>
-					<?php 
-						echo $_SESSION['success']; 
-						unset($_SESSION['success']);
-					?>
-				</h3>
-			</div>
-		<?php endif ?>
-
-		
-		<?php  if (isset($_SESSION['username'])) : ?>
-			<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-			<p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
-		<?php endif ?>
-
+	<div class="row grad">
+		<div class= "col-lg-1 hidden-md hidden-sm hidden-xs"><img class="logo" src="images/logo.jpg"></div>
+		<div class= "col-lg-3 clg hidden-md hidden-sm hidden-xs">Sree Chitra Thirunal College Of Engineering
+			<br>Trivandrum</div>
+		<div class= "col-lg-8 ghead"><h1>GRIEVANCE CELL<h1></div>
 	</div>
-		
+
+	<div class="container">
+		<div class="login">
+			<h2>LOGIN</h2>
+			<form class=glog method="post" action="index.php">
+				<?php include('errors.php'); ?>
+				<div class="form-group ">
+					<i class="fas fa-user"></i>
+					<input type="text" name="username" placeholder="Username">
+				</div>
+				<div class="form-group inner-addon left-addon">
+					<i class="fas fa-lock"></i>
+					<input type="password" name="password" placeholder=" Password">
+				</div>
+				<div class="form-group inner-addon left-addon">					
+					<button type="submit" class="btn btn-light"  name="login_user">Login</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
 </body>
 </html>
