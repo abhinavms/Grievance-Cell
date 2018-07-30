@@ -17,11 +17,9 @@
 <!doctype html>
 <html lang="en">
   <head>   
-  <link rel = "icon" href = "vendor/fontawesome/svgs/solid/user-shield.ico" type = "image/x-icon">
 	<title>Grievance Cell</title>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:500,700" rel="stylesheet">
 	<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="vendor/fontawesome/css/all.css">
 	<link rel="stylesheet" href="css/main.css">
 	<title>Grievance Site</title>
    </head>

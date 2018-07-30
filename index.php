@@ -2,11 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel = "icon" href = "vendor/fontawesome/svgs/solid/user-shield.ico" type = "image/x-icon">
 	<title>Grievance Cell</title>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:500,700" rel="stylesheet">
 	<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
-	<link rel="stylesheet" href="vendor/fontawesome/css/all.css">
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -24,11 +22,11 @@
 			<form class=glog method="post" action="index.php">
 				<?php include('errors.php'); ?>
 				<div class="form-group ">
-					<i class="fas fa-user"></i>
+				<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 					<input type="text" name="username" placeholder="Username">
 				</div>
 				<div class="form-group inner-addon left-addon">
-					<i class="fas fa-lock"></i>
+				<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
 					<input type="password" name="password" placeholder=" Password">
 				</div>
 				<div class="form-group inner-addon left-addon">					
