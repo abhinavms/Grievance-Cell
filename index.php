@@ -23,7 +23,7 @@
 				<?php include('errors.php'); ?>
 				<div class="form-group ">
 				<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-					<input type="text" name="username" placeholder="Username">
+					<input type="text" name="userid" placeholder="Username">
 				</div>
 				<div class="form-group inner-addon left-addon">
 				<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>

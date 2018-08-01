@@ -1,17 +1,17 @@
 <?php 
 	session_start(); 
 
-	if (!isset($_SESSION['username'])) {
+	if (!isset($_SESSION['userid'])) {
 		$_SESSION['msg'] = "You must log in first";
 		header('location: index.php');
 	}
-	if ($_SESSION['Category']==1) {
+	if ($_SESSION['Category']==1 OR $_SESSION['Category']==2) {
 		$_SESSION['msg'] = "You dont have access";
 		header('location: index.php');
 	}
 	if (isset($_GET['logout'])) {
 		session_destroy();
-		unset($_SESSION['username']);
+		unset($_SESSION['userid']);
 		header("location: index.php");
 	}
 		  
@@ -43,7 +43,7 @@
 			
 			if(isset($_POST['submit']) && $_POST['submit'] == "submit"){
 				echo "<h5 style='color: red;'>Your replied was entered.</h5>";
-				//header('location: loginTeacher.php');
+				header('location: loginTeacher.php');
 			}
 		}
 ?>
@@ -64,7 +64,7 @@
 	<table class="table table-bordered" style="background:RGB(255,255,255);">
 	<tr>
 		<th> <div class="form-group"><label for="sub"><h4>Name </h4></label></div> </th>
-		<th> <h4><?php echo $row2['name']; ?></h4> </th>
+		<th> <h4><?php echo $row2['username']; ?></h4> </th>
 	</tr>    
 	<tr>
 		<th> <div class="form-group"><label for="sub"><h4>Department</h4></label></div>	</th>

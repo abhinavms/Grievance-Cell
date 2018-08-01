@@ -1,17 +1,16 @@
 <?php 
 	session_start(); 
 
-	if (!isset($_SESSION['username'])) {
+	if (!isset($_SESSION['userid'])) {
 		$_SESSION['msg'] = "You must log in first";
 		header('location: index.php');
 	}
 	
-	if (isset($_GET['logout'])) {
+	if (isset($_GET['logout']) OR $_SESSION['Category']==3) {
 		session_destroy();
-		unset($_SESSION['username']);
+		unset($_SESSION['userid']);
 		header("location: index.php");
 	}
-
 ?>
 
 <!doctype html>
@@ -22,50 +21,93 @@
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/main.css">
 		<title>Grievance Site</title>
+		<style>
+			table {
+    			border-collapse: collapse;
+   				width: 100%;
+			}
+
+			th, td {
+    			text-align: left;
+    			padding: 10px;
+				padding-left:20px;
+			}
+
+			tr:nth-child(even) {background-color: #f2f2f2;}
+			tr:nth-child(odd) {background-color: white;}
+		</style>
 	</head>
    <body>
-	<div class="container">
-		<?php if (isset($_SESSION['success'])) : ?>
-			<div class="error success" >
-				<h3>
-					<?php unset($_SESSION['success']); ?>
-				</h3>
-			</div>
-		<?php endif ?>
 
-		<div class="grad" style="margin-top:0px; padding-top=0px;">
-		<?php  if (isset($_SESSION['username'])) : ?>
+		<div class="grad" >
+			<?php  if (isset($_SESSION['userid'])) : ?>
 			<H1>Welcome <strong>
 			<?php 
-			include('credentials.php');
-			$username = $_SESSION['username'];
-			$db1 = mysqli_connect($host, $access_username, $access_password, $database_users);
-			if(mysqli_connect_error())
-				die ("Error Connecting.");
-			$username = $_SESSION['username'];
-			$query1="SELECT `name` FROM users WHERE userid='$username' ";
-			$result1=mysqli_query($db1,$query1);
-			$rows = mysqli_fetch_array($result1);
-			$name = $rows['name'];
-			echo $name;
+			echo $_SESSION['username'];
 			?></strong></H1> <?php endif ?>
-		<a class="pull-right" href="index.php?logout='1'" style="color: red;">logout</a>
-
+			<a class="pull-right" href="index.php?logout='1'" style="color: red;">logout</a>
 		</div>
-   <?php 
-   		
-			$db = mysqli_connect($host, $access_username, $access_password, $database_grievance);
 
+   		<?php 
+   			include("credentials.php");
+			$db_grv = mysqli_connect($host, $access_username, $access_password, $database_grievance);
 			if(mysqli_connect_error())
 				die ("Error Connecting.");
+
+			$userid = $_SESSION['userid'];
+			$query = "SELECT * FROM `grv` WHERE userid='$userid' ORDER BY reply";
+			$results = mysqli_query($db_grv,$query);
+		?>
+
+		<?php if (mysqli_num_rows($results) > 0) : ?>
+			<br><br>
 			
-			$query = "SELECT * FROM `grv` WHERE userid='$username' ORDER BY reply";
-			$results = mysqli_query($db,$query);
-			if (mysqli_num_rows($results) > 0) {
-				include ("loginStudentView.php");
-			}
-			include ("loginStudentInput.php");
-    ?>
+			<div class = "container">
+				<h4 style = "color: white">Your previous queries:</h4>
+				<div class="table-responsive">
+					<table>
+						<tr >
+							<th>Submitted On</th>
+							<th>Subject</th>
+							<th>Replied</th>
+						</tr>
+							<?php
+								while($row = mysqli_fetch_array($results)){
+							?>
+						<tr>
+						<td> <?php echo $row['datetime']; ?> </td>
+						<td> <?php echo $row['sub']; ?></td>
+						<?php 
+							if($row['done']==1) : ?>
+								<td> <?php echo $row['reply']; ?></td>
+								</tr>
+							<?php else : ?>
+								<td> Still waiting reply </td>
+								</tr>
+							<?php endif;} ?>
+					</table>
+				</div>
+			</div>
+			<br><br>
+		<?php endif; ?>
+
+			<!--Submit Form : -->
+
+			<div style="color:white;" class = "container">
+				<h3 >Fill out</h3>
+				<form method="post">
+						<div class="form-group">
+							<label for="sub">Subject:</label>
+							<input type="text" style="margin-top: 0%;" class="form-control" name="subject" placeholder="Subject of grievance">
+						</div>
+						<div class="form-group">	
+							<label for="Desc">Description:</label>
+							<textarea class="form-control" name="desc" rows="3" placeholder="Description of grievance"></textarea>
+						</div>
+						<?php include ('input.php'); ?>
+						<input id="submit" name="submit" type="submit" class="btn btn-primary" value="Submit" style="margin-top=1%;margin-bottom: 3%">
+  				</form>
+			</div>
 </div>
 </body>
 </html>
