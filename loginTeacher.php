@@ -42,11 +42,22 @@
 
 		<div class="grad">
 		<?php  if (isset($_SESSION['username'])) : ?>
-			<h1>Welcome Teacher<strong><?php echo $_SESSION['username']; ?></strong></h1>
-			<h4> <a href="index.php?logout='1'" style="color: red;">logout</a> </h4>
-		<?php endif ?>
+		<H1>Welcome <strong>
+			<?php 
+			include('credentials.php');
+			$username = $_SESSION['username'];
+			$db1 = mysqli_connect($host, $access_username, $access_password, $database_users);
+			if(mysqli_connect_error())
+				die ("Error Connecting.");
+			$username = $_SESSION['username'];
+			$query1="SELECT `name` FROM users WHERE userid='$username' ";
+			$result1=mysqli_query($db1,$query1);
+			$rows = mysqli_fetch_array($result1);
+			$name = $rows['name'];
+			echo $name;
+			?></strong></H1> <?php endif ?>
+		<a class="pull-right" href="index.php?logout='1'" style="color: red;">logout</a>
 		</div>
-		
 		<?php 
 			include('credentials.php');
 			$db = mysqli_connect($host, $access_username, $access_password, $database_grievance);
