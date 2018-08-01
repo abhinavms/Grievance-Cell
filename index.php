@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" href="css/main.css">
 </head>
-<body>
+<body style="margin:0px; padding:0px;">
 
 	<div class="row grad">
 		<div class= "col-lg-1 hidden-md hidden-sm hidden-xs"><img class="logo" src="images/logo.jpg"></div>
@@ -21,17 +21,21 @@
 			<h2>LOGIN</h2>
 			<form class=glog method="post" action="index.php">
 				<?php include('errors.php'); ?>
+
 				<div class="form-group ">
-				<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+					<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 					<input type="text" name="username" placeholder="Username">
 				</div>
+
 				<div class="form-group inner-addon left-addon">
-				<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+					<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
 					<input type="password" name="password" placeholder=" Password">
 				</div>
+
 				<div class="form-group inner-addon left-addon">					
-					<button type="submit" class="btn btn-light"  name="login_user">Login</button>
+					<input type="submit" class="btn btn-light"  name="login_user" value="Login">
 				</div>
+
 			</form>
 		</div>
 	</div>

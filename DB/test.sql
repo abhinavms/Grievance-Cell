@@ -1,6 +1,6 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Server version:               10.1.34-MariaDB - mariadb.org binary distribution
+-- Server version:               10.1.32-MariaDB - mariadb.org binary distribution
 -- Server OS:                    Win32
 -- HeidiSQL Version:             9.5.0.5196
 -- --------------------------------------------------------
@@ -24,24 +24,23 @@ CREATE TABLE IF NOT EXISTS `users` (
   `name` varchar(50) NOT NULL,
   `password1` varchar(50) NOT NULL,
   `password2` varchar(50) NOT NULL,
-  `batch` varchar(50) NOT NULL,
+  `batch` int(11) NOT NULL,
   `rollno` int(11) NOT NULL,
   `cadi_code` int(11) NOT NULL,
-  `dept` varchar(50) NOT NULL,
+  `dept` int(11) NOT NULL,
   `course` varchar(50) NOT NULL,
   `quota` int(11) NOT NULL,
   `tc-no` int(11) NOT NULL,
-  `semester` int(11) NOT NULL,
+  `semseter` int(11) NOT NULL,
   `scheme` int(11) NOT NULL,
   PRIMARY KEY (`slno`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Dumping data for table test.users: ~3 rows (approximately)
+-- Dumping data for table test.users: ~2 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-REPLACE INTO `users` (`slno`, `userid`, `catagory`, `name`, `password1`, `password2`, `batch`, `rollno`, `cadi_code`, `dept`, `course`, `quota`, `tc-no`, `semester`, `scheme`) VALUES
-	(1, 170163, 1, 'Abhinav MS', 'qwert', 'qwert', '2017', 2, 0, 'CS', '', 0, 0, 2, 0),
-	(2, 12845, 1, 'Kunji', 'abhinav', 'abhinav', '2018', 3, 0, 'BT', '', 0, 0, 2, 0),
-	(3, 123, 2, 'asd', 'asd', 'asd', '2000', 0, 0, 'EC', '', 0, 0, 0, 0);
+INSERT INTO `users` (`slno`, `userid`, `catagory`, `name`, `password1`, `password2`, `batch`, `rollno`, `cadi_code`, `dept`, `course`, `quota`, `tc-no`, `semseter`, `scheme`) VALUES
+	(1, 170163, 1, 'Abhinav MS', 'qwert', 'qwert', 0, 0, 0, 0, '', 0, 0, 0, 0),
+	(2, 12845, 1, 'Kunji', 'abhinav', 'abhinav', 0, 0, 0, 0, '', 0, 0, 0, 0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
