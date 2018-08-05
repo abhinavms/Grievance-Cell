@@ -1,18 +1,6 @@
 <?php 
-	session_start(); 
-
-	if (!isset($_SESSION['userid'])) {
-		$_SESSION['msg'] = "You must log in first";
-		header('location: index.php');
-	}
-	
-	if (isset($_GET['logout']) OR $_SESSION['Category']==3) {
-		session_destroy();
-		unset($_SESSION['userid']);
-		header("location: index.php");
-	}
+	include('php/loginStudent.php');
 ?>
-
 <!doctype html>
 <html lang="en">
 	<head>   
@@ -47,17 +35,6 @@
 			?></strong></H1> <?php endif ?>
 			<a class="pull-right" href="index.php?logout='1'" style="color: red;">logout</a>
 		</div>
-
-   		<?php 
-   			include("credentials.php");
-			$db_grv = mysqli_connect($host, $access_username, $access_password, $database_grievance);
-			if(mysqli_connect_error())
-				die ("Error Connecting.");
-
-			$userid = $_SESSION['userid'];
-			$query = "SELECT * FROM `grv` WHERE userid='$userid' ORDER BY reply";
-			$results = mysqli_query($db_grv,$query);
-		?>
 
 		<?php if (mysqli_num_rows($results) > 0) : ?>
 			<br><br>
@@ -104,7 +81,7 @@
 							<label for="Desc">Description:</label>
 							<textarea class="form-control" name="desc" rows="3" placeholder="Description of grievance"></textarea>
 						</div>
-						<?php include ('input.php'); ?>
+						
 						<input id="submit" name="submit" type="submit" class="btn btn-primary" value="Submit" style="margin-top=1%;margin-bottom: 3%">
   				</form>
 			</div>

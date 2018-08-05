@@ -1,28 +1,5 @@
 <?php 
-	session_start(); 
-
-	if (!isset($_SESSION['username'])) {
-		$_SESSION['msg'] = "You must log in first";
-		header('location: index.php');
-	}
-	if ($_SESSION['Category']==1 OR $_SESSION['Category']==2) {
-		$_SESSION['msg'] = "You dont have access";
-		header('location: index.php');
-	}
-	if (isset($_GET['logout'])) {
-		session_destroy();
-		unset($_SESSION['username']);
-		header("location: index.php");
-	}
-	
-	include('credentials.php');
-	$db = mysqli_connect($host, $access_username, $access_password, $database_grievance);
-
-	if(mysqli_connect_error()){
-			die ("Error Connecting.");
-	}			
-	$query = "SELECT * FROM `grv` ORDER BY `done`,`datetime`";
-	$results = mysqli_query($db,$query);
+	include('php/loginTeacher.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,12 +16,12 @@
 	<div class="table-responsive">
 
 		<div class="grad">
-			<?php  if (isset($_SESSION['username'])) : ?>
+			<?php  if (isset($_SESSION['userid'])) : ?>
 			<H1>Welcome <strong>
 			<?php echo $_SESSION['username']; ?>
 			</strong></H1> 
 			<?php endif ?>
-			<a class="pull-right" href="index.php?logout='1'" style="color: red;">logout</a>
+			<a class="pull-right" href="index.php" style="color: red;">logout</a>
 		</div>
 		
 		<table class="table" style="margin-top:3%;">

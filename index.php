@@ -1,4 +1,7 @@
-<?php include('server.php') ?>
+<?php 
+	include('php/index.php');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +23,6 @@
 		<div class="login">
 			<h2>LOGIN</h2>
 			<form class=glog method="post" action="index.php">
-				<?php include('errors.php'); ?>
 				<div class="form-group ">
 				<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 					<input type="text" name="userid" placeholder="Username">
