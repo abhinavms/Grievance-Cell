@@ -18,10 +18,11 @@
 		<div class="grad">
 			<?php  if (isset($_SESSION['userid'])) : ?>
 			<H1>Welcome <strong>
-			<?php echo $_SESSION['username']; ?>
+			<?php echo $_SESSION['username'] ?>
 			</strong></H1> 
 			<?php endif ?>
-			<a class="pull-right" href="index.php" style="color: red;">logout</a>
+			<a class="pull-right" href="index.php" style="color: red">logout</a>
+			<a class="pull-left" href="report.php" style="color: blue">Generate Monthly Report</a>
 		</div>
 		
 		<table class="table" style="margin-top:3%;">
@@ -30,7 +31,7 @@
 				<th>Subject</th>
 				<th>Replied</th>
 				<th>Reply</th>
-			</tr>';
+			</tr>
 			
 			<?php while($row = mysqli_fetch_array($results)){ ?>							
 				<tr style="background: white ">

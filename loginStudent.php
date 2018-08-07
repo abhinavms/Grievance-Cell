@@ -8,7 +8,6 @@
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:500,700" rel="stylesheet">
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/main.css">
-		<title>Grievance Site</title>
 		<style>
 			table {
     			border-collapse: collapse;
