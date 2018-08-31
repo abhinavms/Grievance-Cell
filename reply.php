@@ -54,6 +54,12 @@
 				<th> <h4>Description</h4> </th>
 				<td> <h4><?php echo $row['description']?></h4></th>
 			</tr>
+			<?php if($row['reply']!=''):?>
+			</tr>
+				<th> <h4>Your previous reply</h4> </th>
+				<td> <h4><?php echo $row['reply']?></h4></th>
+			</tr>
+			<?php endif ?>
 			<tr>
 				<th> <h4>Reply here</h4> </th>
 				<td> <textarea name="reply" class="form-control"  rows="3" placeholder="Enter your reply"></textarea> </th>

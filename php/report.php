@@ -14,13 +14,66 @@
 		session_destroy();
 		header("location: index.php");
 	}
-	
+	$yearSelected = date('Y'); 
+	$month = 1;
+	$monthTemp = $month;
+	$year = $yearSelected;
+	if(isset($_POST['submit'])){
+		$yearSelected = $_POST['yearSelected'];	
+	}
+
 	include('php/credentials.php');
 	$db = mysqli_connect($host, $access_username, $access_password, $database_grievance);
 
 	if(mysqli_connect_error()){
 			die ("Error Connecting.");
-	}			
-	$query = "SELECT month(datetime),year(datetime),count(*) FROM `grv` GROUP BY month(datetime),Year(datetime) ORDER BY `datetime`";
+	}
+
+	$query = "SELECT month(datetime),year(datetime),count(*) FROM `grv` WHERE year(datetime)='$yearSelected' GROUP BY month(datetime),Year(datetime) ORDER BY `datetime`";
 	$results = mysqli_query($db,$query);
+	$row = mysqli_fetch_array($results); 
+
+	function switchCall($var){
+		switch ($var) {
+									case 1:
+											echo "January";
+											break;
+									case 2:
+											echo "February";
+											break;
+									case 3:
+											echo "March";
+											break;
+									case 4:
+											echo "April";
+											break;
+									case 5:
+											echo "May";
+											break;
+									case 6:
+											echo "June";
+											break;
+									case 7:
+											echo "July";
+											break;
+									case 8:
+											echo "August";
+											break;
+									case 9:
+											echo "September";
+											break;
+									case 10:
+											echo "October";
+											break;
+									case 11:
+											echo "November";
+											break;
+									case 12:
+											echo "December";
+											break;
+									default:
+											break;
+									}									
+									
+	}
 ?>

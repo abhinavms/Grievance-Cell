@@ -43,7 +43,22 @@
 	</div>
   </header>
   <!-- END: header -->
-
+	<!-- Year selector -->
+    <form action="#" method="post">
+		<SELECT name = "yearSelected">
+				<?php 
+					$yearStart = 2002;	//One less than actual year
+					$yearNow = date('Y');
+					echo"<OPTION value = ".$yearNow." selected>".$yearNow."</OPTION>";
+					$yearNow--;
+		  			while("$yearStart" != "$yearNow"){
+						echo"<OPTION value = ".$yearNow.">".$yearNow."</OPTION>";
+	 					$yearNow--; 
+	 					}
+	 			?>
+		</SELECT>
+		<input type = "submit" name = "submit" value = "Submit">
+	</form>
     <div class="section-heading text-center ">
 		<?php  if (isset($_SESSION['userid'])) : ?>
 		<H2>Welcome <strong>
@@ -57,6 +72,7 @@
 		<div class="container-table100">
 			<div class="wrap-table100">
 				<div class="table100">
+					<h1 style="text-align: center;" colspan = "3"><?php echo $yearSelected; ?> </h1>
 					<table>
 						<thead>
 							<tr class="table100-head">

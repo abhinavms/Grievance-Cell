@@ -42,13 +42,29 @@
 	</div>
   </header>
   <!-- END: header -->
-
+    <!-- Year Selector -->
+    <form action="#" method="post">
+		<SELECT name = "yearSelected">
+				<?php 
+					$yearStart = 2002;	//One less than actual year
+					$yearNow = date('Y');
+					echo"<OPTION value = ".$yearNow." selected>".$yearNow."</OPTION>";
+					$yearNow--;
+		  			while("$yearStart" != "$yearNow"){
+						echo"<OPTION value = ".$yearNow.">".$yearNow."</OPTION>";
+	 					$yearNow--; 
+	 					}
+	 			?>
+		</SELECT>
+		<input type = "submit" name = "submit" value = "Submit">
+	</form>
 	<div class="limiter">
 		<div class="container-table100">
 			<div class="wrap-table100">
 				<div class="table100">
+					<h1 style="text-align: center;" colspan = "3"><?php echo $yearSelected; ?> </h1>
 					<table>
-						<thead>
+						<thead>								
 							<tr class="table100-head">
 								<th class="column">Month</th>
 								<th class="column">Number of Grievances</th>
@@ -56,55 +72,54 @@
 							</tr>
 						</thead>
 						<tbody>
-							<?php while($row = mysqli_fetch_array($results)): ?>							
+						<?php if($yearSelected == date('Y')): while(($month-1) != date('n')): ?>							
 							<tr>
-								<td class="column"><?php 
-									switch ($row['month(datetime)']) {
-									case 1:
-											echo "January";
-											break;
-									case 2:
-											echo "February";
-											break;
-									case 3:
-											echo "March";
-											break;
-									case 4:
-											echo "April";
-											break;
-									case 5:
-											echo "May";
-											break;
-									case 6:
-											echo "June";
-											break;
-									case 7:
-											echo "July";
-											break;
-									case 8:
-											echo "August";
-											break;
-									case 9:
-											echo "September";
-											break;
-									case 10:
-											echo "October";
-											break;
-									case 11:
-											echo "November";
-											break;
-									case 12:
-											echo "December";
-											break;
-									default:
-											break;
-									}
-									//echo " ".$row['year(datetime)'];
-									?></td>
-								<td class="column"><?php echo $row['count(*)']; ?></td>					
-								<td class="column"><?php echo"<a href='php/generate.php?month=".$row['month(datetime)']."&year=".$row['year(datetime)']."'>Generate</a>"; ?> </td>
+								<td class="column"><?php switchCall($month);?></td>
+								<td class="column">
+									<?php   
+											$count = 0;
+											if($row['month(datetime)'] == $month){
+												$monthTemp = $row['month(datetime)'];
+												$count = $row['count(*)']; 
+												if($count !=0)
+													echo $count;
+												$year = $row['year(datetime)'];
+												$row = mysqli_fetch_array($results);
+											}
+											else 
+												echo "Nil";
+									?>		
+								</td>					
+								<td class="column">
+									<?php if($count !=0) echo"<a href='php/generate.php?month=".$monthTemp."&year=".$year."'>Generate</a>"; 
+										   else echo "No entry this month";?>
+								</td>
 							</tr>
-							<?php endwhile; ?>
+							<?php $month++;	endwhile; else: while($month<13): ?>															
+							<tr>
+								<td class="column"><?php switchCall($month);?></td>
+								<td class="column">
+									<?php   
+											$count = 0;
+											if($row['month(datetime)'] == $month){
+												$monthTemp = $row['month(datetime)'];
+												$count = $row['count(*)']; 
+												if($count !=0)
+													echo $count;
+												$year = $row['year(datetime)'];
+												$row = mysqli_fetch_array($results);
+											}
+											else 
+												echo "Nil";
+									?>		
+								</td>					
+								<td class="column">
+									<?php if($count !=0) echo"<a href='php/generate.php?month=".$monthTemp."&year=".$year."'>Generate</a>"; 
+										   else echo "No entry this month";?>
+										   else echo "No entry this month";?> 
+								</td>
+							</tr>
+							<?php $month++; endwhile; endif; ?>
 						</tbody>
 					</table>
 				</div>
