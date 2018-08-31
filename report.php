@@ -116,7 +116,6 @@
 								<td class="column">
 									<?php if($count !=0) echo"<a href='php/generate.php?month=".$monthTemp."&year=".$year."'>Generate</a>"; 
 										   else echo "No entry this month";?>
-										   else echo "No entry this month";?> 
 								</td>
 							</tr>
 							<?php $month++; endwhile; endif; ?>
