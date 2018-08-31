@@ -2,51 +2,71 @@
 	include('php/reply.php');
 ?>
 <!DOCTYPE html>
-<html>
-<head>   
-</style>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>uiCookies:Sublime &mdash; Free Bootstrap Theme, Free Responsive Bootstrap Website Template</title>
+    <meta name="description" content="Free Bootstrap Theme by uicookies.com">
+    <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
+    
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/styles-merged.css">
+    <link rel="stylesheet" href="css/style.min.css">
+	<link rel="stylesheet" href="css/custom.css">
 
-    <title>Grievance Cell</title>
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:500,700" rel="stylesheet">
-	<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/main.css">	
-</head>
-<body>
+  </head>
+  <body>
+	
+  	<!-- START: header -->
+	<header role="banner" class="probootstrap-header probootstrap-header-no-intro">
+    <div class="container-fluid">
+        <a href="index.html" class="probootstrap-logo">Sublime<span>.</span></a>
+        <nav role="navigation" class="probootstrap-nav">
+          <ul class="probootstrap-main-nav">
+            <li class="probootstrap-cta"><a href="index.html">Log Out</a></li>
+          </ul>
+        </nav>
+	</div>
+  </header>
+  <!-- END: header -->
+ <section class="probootstrap-section">
 	<div class = "container">    
-	<form method="POST">
-	<div class="form-group" style="margin: 3%;">
-	<table class="table table-bordered" style="background:RGB(255,255,255);">
-	<tr>
-		<th> <div class="form-group"><label for="sub"><h4>Name </h4></label></div> </th>
-		<th> <h4><?php echo $row2['username']; ?></h4> </th>
-	</tr>    
-	<tr>
-		<th> <div class="form-group"><label for="sub"><h4>Department</h4></label></div>	</th>
-		<th> <h4><?php echo $row2['dept']; ?></h4> </th>
-	</tr>   
-	<tr>
-		<th> <div class="form-group"><label for="sub"><h4>Semester</h4></label></div> </th>
-		<th> <h4><?php echo $row2['semester']; ?></h4> </th>
-	</tr>
-    <tr>
-		<th> <div class="form-group"><label for="sub"><h4>Subject</h4></label></div> </th>
-		<th> <textarea readonly rows = "4" ><?php echo $row['sub'] ?></textarea></th>
-    </tr>
-		<th> <div class="form-group"><label for="sub"><h4>Description</h4></label></div> </th>
-		<th> <textarea readonly rows = "7"><?php echo $row['description']?></textarea></th>
-	</tr>
-	<tr>
-		<th> <div class="form-group"><label for="sub"><h4>Reply here</h4></label></div> </th>
-		<th> <textarea name="reply" class="form-control"  rows="3" placeholder="Enter your reply"></textarea> </th>
-	</tr>
-	<tr>
-		<th></th>
-		<th> <button name="submit" type="submit" value = "submit" class="btn btn-primary">Submit</button> </th>
-	</tr>
-	</table>
+		<form method="POST">
+			<div class="form-group">
+			<table>
+			<tr>
+				<th> <h4>Name </h4> </th>
+				<td> <h4><?php echo $row2['name']; ?></h4> </td>
+			</tr>    
+			<tr>
+				<th> <h4>Department</h4> </th>
+				<td> <h4><?php echo $row2['dept']; ?></h4> </th>
+			</tr>   
+			<tr>
+				<th> <h4>Semester</h4> </th>
+				<td> <h4><?php echo $row2['semester']; ?></h4> </th>
+			</tr>
+			<tr>
+				<th> <h4>Subject</h4> </th>
+				<td> <h4><?php echo $row['sub'] ?></h4></th>
+			</tr>
+				<th> <h4>Description</h4> </th>
+				<td> <h4><?php echo $row['description']?></h4></th>
+			</tr>
+			<tr>
+				<th> <h4>Reply here</h4> </th>
+				<td> <textarea name="reply" class="form-control"  rows="3" placeholder="Enter your reply"></textarea> </th>
+			</tr>
+			<tr>
+				<th></th>
+				<th > <button name="submit" type="submit" value = "submit" class="btn btn-primary">Submit</button> </th>
+			</tr>
+			</table>
+			</div>
+		</form>
 	</div>
-	</form>
-	</div>
+ </section>
 </body>
 </html>
  

@@ -4,8 +4,7 @@
 	$userid = "";
 	$errors = array(); 
 	$_SESSION['success'] = "";
-	include('php/credentials.php');
-	include('php/errors.php');
+	include('php/credentials.php');	
 
 	$db_users = mysqli_connect($host, $access_username, $access_password, $database_users);
 
@@ -32,8 +31,10 @@
 				
 				$row_users = mysqli_fetch_array($results);
 
-				$_SESSION['username']=$row_users['username'];
+				$_SESSION['username']=$row_users['name'];
 				$_SESSION['Category'] = $row_users['catagory'];
+				$_SESSION['dept']=$row_users['dept'];
+				$_SESSION['semester']=$row_users['semester'];
 
 				if($_SESSION['Category']==1 OR $_SESSION['Category']==2)
 				 	header('location: loginStudent.php');

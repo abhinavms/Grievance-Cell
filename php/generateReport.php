@@ -50,62 +50,77 @@
                                     break;
                     }
 ?>
-<style>
-
-            th, td {
-                text-align: left;
-                padding: 10px;
-                padding-left:20px;
-                width: 20%;
-            }
-
-            tr:nth-child(even) {background-color: #f2f2f2;}
-            tr:nth-child(odd) {background-color: white;}
+<style type="text/css">
+	th,td{
+		 text-align: left;
+		 padding: 1mm;
+		 width: 16%;
+		 border : solid .2mm black
+	}
+	table{
+		border-collapse: collapse;
+		
+	}
+    table.page_footer {
+    	width: 100%; 
+    	border: none; 
+    	background-color: #cccccc;
+    	border-top: solid 1mm black; 
+    	padding: 1mm}
 </style>
-<page >
-    <!--<page_header>-->
-    <br><br>
-    <H1 style="text-align: center"><?php echo $mon ?> Grievance Report</H1>
-    <!--   </page_header>
-     <page_footer>
-        <table style="width: 100%; border: solid 1px black;">
+
+<page backtop="45mm" backbottom="14mm">
+    <page_footer>
+    	<table class="page_footer">
             <tr>
-                <td style="text-align: left;    width: 50%"></td>
-                <td style="text-align: right;    width: 50%"></td>
+                <td style="border: none; width: 50%; text-align: left">
+                    <?php echo date("d/m/Y"); ?>
+                </td>
+                <td style="border: none; width: 50%; text-align: right">
+                   Page [[page_cu]]/[[page_nb]]
+                </td>
             </tr>
-        </table>
+        </table> 
     </page_footer>
-    -->
-    <br>
-    <br><br>
+    <page_header>
+    <div style="text-align: center; color: blue">
+		<H1>Sree Chitra Thirunal<BR>College Of Engineering</H1>
+	</div>
+    <div style="text-align: center; color: grey">
+		<H3><?php echo ($mon." ".$year) ?> Grievance Report</H3>
+	</div>
+	</page_header>
+	<!-- table -->
     <table style="width: 100%;" align="center">
+    	<thead>
             <tr style="background: #cccccc">
-                <th>Submission Date</th>
-                <th>Submitted By</th>
-                <th>Subject</th>
-                <th>Description</th>
-                <th>Reply</th>
+            	<th class = "data">SL NO</th>
+                <th class = "data">Submission <BR> Date</th>
+                <th class = "data">Submitted By</th>
+                <th class = "data">Complaint About</th>
+                <th class = "data">Description</th>
+                <th class = "data">Status</th>
             </tr>
-
-        <?php while($row = mysqli_fetch_array($results)): ?>
-
-            <tr style="background: #f2f2f2">
-                <td> <?php echo $row['datetime']; ?></td>
-                <td> <?php echo $row['username']; ?></td>
-                <td> <?php echo $row['sub']; ?></td>
-                <td> <?php echo $row['description']; ?></td>
-                <td>                      
+        </thead>
+        <?php $i = 1 ; while($row = mysqli_fetch_array($results)): ?>
+        <tbody>
+            <tr>
+            	<td class = "data"> <?php echo $i ?> </td>
+                <td class = "data"> <?php echo $row['datetime']; ?></td>
+                <td class = "data"> <?php echo $row['username'].', '.$row['semester'].', '.$row['dept']; ?></td>
+                <td class = "data"> <?php echo $row['sub']; ?></td>
+                <td class = "data"> <?php echo $row['description']; ?></td>
+                <td class = "data">                      
                         <?php 
                                 if($row['done']==1)
-                                    echo $row['reply'];
+                                    echo "Replied";
                                 else
                                     echo "Not replied";
                         ?>
                 </td>
             </tr>
-
-        <?php endwhile; ?>
+        </tbody>
+        <?php $i++; endwhile; ?>
 
     </table>
-    <br>
 </page>

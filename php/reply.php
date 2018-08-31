@@ -3,16 +3,16 @@
 
 	if (!isset($_SESSION['userid'])) {
 		$_SESSION['msg'] = "You must log in first";
-		header('location: index.php');
+		header('location: login.php');
 	}
 	if ($_SESSION['Category']==1 OR $_SESSION['Category']==2) {
 		$_SESSION['msg'] = "You dont have access";
-		header('location: index.php');
+		header('location: login.php');
 	}
 	if (isset($_GET['logout'])) {
 		session_destroy();
 		unset($_SESSION['userid']);
-		header("location: index.php");
+		header("location: login.php");
 	}
 		  
 		  include('php/credentials.php');
