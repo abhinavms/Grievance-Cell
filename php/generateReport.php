@@ -4,7 +4,8 @@
 
     if(mysqli_connect_error()){
             die ("Error Connecting.");
-    }           
+    }      
+    $flag = 0;   
     $month = $_GET['month'];
     $year = $_GET['year'];
     $query = "SELECT * FROM `grv` WHERE month(datetime)=$month AND year(datetime) = $year";
@@ -51,6 +52,8 @@
                     }
 ?>
 <style type="text/css">
+h1 { padding: 0; margin: 2mm; color: #DD0000; font-size: 7mm; }
+h3 { padding: 0; margin: 0; color: grey; font-size: 5mm; }
 	th,td{
 		 text-align: left;
 		 padding: 1mm;
@@ -69,8 +72,8 @@
     	padding: 1mm}
 </style>
 
-<page backtop="45mm" backbottom="14mm">
-    <page_footer>
+<page backtop="45mm" backbottom="14mm" style="font-family: helvetica;">
+    <page_footer >
     	<table class="page_footer">
             <tr>
                 <td style="border: none; width: 50%; text-align: left">
@@ -82,9 +85,9 @@
             </tr>
         </table> 
     </page_footer>
-    <page_header>
+    <page_header style="font-family: Times;">
     <div style="text-align: center; color: blue">
-		<H1>Sree Chitra Thirunal<BR>College Of Engineering</H1>
+		<h1>Sree Chitra Thirunal College Of Engineering</h1>
 	</div>
     <div style="text-align: center; color: grey">
 		<H3><?php echo ($mon." ".$year) ?> Grievance Report</H3>
@@ -113,14 +116,21 @@
                 <td class = "data">                      
                         <?php 
                                 if($row['done']==1)
-                                    echo "Replied";
+                                    echo $row['reply'];
                                 else
                                     echo "Not replied";
                         ?>
                 </td>
             </tr>
         </tbody>
-        <?php $i++; endwhile; ?>
-
+        <?php 
+                $flag = 1;
+                $i++; 
+            endwhile; ?>
     </table>
+    <?php if(!$flag): ?>
+            <div style="text-align: center;">
+               <H2> No entry this month. </H2>
+            </div>
+    <?php endif; ?>
 </page>

@@ -1,5 +1,7 @@
 <?php
 /**
+ * Html2Pdf Library - example
+ *
  * HTML => PDF converter
  * distributed under the OSL-3.0 License
  *
@@ -15,14 +17,13 @@ use Spipu\Html2Pdf\Exception\ExceptionFormatter;
 
 try {
     ob_start();
-    include ('generateReport.php');
+    include dirname(__FILE__).'/res/example05.php';
     $content = ob_get_clean();
 
-    $html2pdf = new Html2Pdf('P', 'A4', 'en', true, 'UTF-8', 0);
-    //$html2pdf->setTestIsImage(false);
-    //$html2pdf->setFallbackImage('./res/off.png');
+    $html2pdf = new Html2Pdf('P', 'A4', 'fr');
+    $html2pdf->pdf->SetDisplayMode('fullpage');
     $html2pdf->writeHTML($content);
-    $html2pdf->output($mon.' '.$year.' Grievance Report.pdf');
+    $html2pdf->output('example05.pdf');
 } catch (Html2PdfException $e) {
     $html2pdf->clean();
 

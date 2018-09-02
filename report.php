@@ -91,8 +91,7 @@
 									?>		
 								</td>					
 								<td class="column">
-									<?php if($count !=0) echo"<a href='php/generate.php?month=".$monthTemp."&year=".$year."'>Generate</a>"; 
-										   else echo "No entry this month";?>
+									<?php echo"<a href='php/generate.php?month=".$month."&year=".$yearSelected."'>Generate</a>"; ?> 
 								</td>
 							</tr>
 							<?php $month++;	endwhile; else: while($month<13): ?>															
@@ -114,8 +113,7 @@
 									?>		
 								</td>					
 								<td class="column">
-									<?php if($count !=0) echo"<a href='php/generate.php?month=".$monthTemp."&year=".$year."'>Generate</a>"; 
-										   else echo "No entry this month";?>
+									<?php echo"<a href='php/generate.php?month=".$monthTemp."&year=".$year."'>Generate</a>"; ?>
 								</td>
 							</tr>
 							<?php $month++; endwhile; endif; ?>
