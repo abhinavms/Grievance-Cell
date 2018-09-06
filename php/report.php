@@ -3,21 +3,23 @@
 
 	if (!isset($_SESSION['userid'])) {
 		$_SESSION['msg'] = "You must log in first";
-		header('location: index.php');
+		header('location: index.html');
 	}
 	if ($_SESSION['Category']==1 OR $_SESSION['Category']==2) {
 		$_SESSION['msg'] = "You dont have access";
-		header('location: index.php');
+		header('location: index.html');
 	}
 	if (isset($_GET['logout'])) {
 		unset($_SESSION['userid']);		
 		session_destroy();
-		header("location: index.php");
+		header("location: index.html");
 	}
 	$yearSelected = date('Y'); 
 	$month = 1;
 	$monthTemp = $month;
 	$year = $yearSelected;
+	$yearStart = 2017;	//One less than actual year
+	$yearNow = date('Y');
 	if(isset($_POST['submit'])){
 		$yearSelected = $_POST['yearSelected'];	
 	}

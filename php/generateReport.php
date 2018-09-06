@@ -1,4 +1,19 @@
 <?php 
+    
+    session_start(); 
+        if (!isset($_SESSION['userid'])) {
+        $_SESSION['msg'] = "You must log in first";
+        header('location: ../index.html');
+    }
+    if ($_SESSION['Category']==1 OR $_SESSION['Category']==2) {
+        $_SESSION['msg'] = "You dont have access";
+        header('location: ../index.html');
+    }
+    if (isset($_GET['logout'])) {
+        unset($_SESSION['userid']);     
+        session_destroy();
+        header("location: ../index.html");
+    }
     include('../php/credentials.php');
     $db = mysqli_connect($host, $access_username, $access_password, $database_grievance);
 

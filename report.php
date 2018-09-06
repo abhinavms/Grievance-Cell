@@ -45,8 +45,6 @@
 		Select Year -
 		<SELECT name = "yearSelected">
 				<?php 
-					$yearStart = 2002;	//One less than actual year
-					$yearNow = date('Y');
 					echo"<OPTION value = ".$yearNow." selected>".$yearNow."</OPTION>";
 					$yearNow--;
 		  			while("$yearStart" != "$yearNow"){
@@ -112,7 +110,7 @@
 									?>		
 								</td>					
 								<td class="column">
-									<?php echo"<a href='php/generate.php?month=".$monthTemp."&year=".$year."'>Generate</a>"; ?>
+									<?php echo"<a href='php/generate.php?month=".$month."&year=".$yearSelected."'>Generate</a>"; ?>
 								</td>
 							</tr>
 							<?php $month++; endwhile; endif; ?>

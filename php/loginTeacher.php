@@ -27,6 +27,9 @@
 	if(mysqli_connect_error()){
 			die ("Error Connecting.");
 	}			
+	$yearStart = 2017;	//One less than actual year
+	$yearNow = date('Y');
+
 	$query = "SELECT * FROM `grv` WHERE year(datetime) = '$yearSelected' ORDER BY `done`,`datetime` desc";
 	$results = mysqli_query($db,$query);
 

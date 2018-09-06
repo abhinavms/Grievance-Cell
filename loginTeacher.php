@@ -25,7 +25,7 @@
         <div class="mobile-menu-overlay"></div>
         <nav role="navigation" class="probootstrap-nav hidden-xs">
           <ul class="probootstrap-main-nav">
-						<li><a href="report.php">Montly Report</a></li>
+						<li><a href="report.php">Monthly Report</a></li>
             <li class="probootstrap-cta"><a href="index.html">Log Out</a></li>
           </ul>
           <div class="extra-text visible-xs">
@@ -52,8 +52,6 @@
 		Select Year -
 		<SELECT name = "yearSelected">
 				<?php 
-					$yearStart = 2002;	//One less than actual year
-					$yearNow = date('Y');
 					echo"<OPTION value = ".$yearNow." selected>".$yearNow."</OPTION>";
 					$yearNow--;
 		  			while("$yearStart" != "$yearNow"){
