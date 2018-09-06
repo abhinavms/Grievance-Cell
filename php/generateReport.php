@@ -52,8 +52,8 @@
                     }
 ?>
 <style type="text/css">
-h1 { padding: 0; margin: 2mm; color: #DD0000; font-size: 7mm; }
-h3 { padding: 0; margin: 0; color: grey; font-size: 5mm; }
+h1 { padding: 0; margin-top: 20mm; color: #3E0682; font-size: 6mm; font-weight: bold; }
+h3 { padding: 0; margin: 0;  color: grey; font-size: 5mm; }
 	th,td{
 		 text-align: left;
 		 padding: 1mm;
@@ -85,16 +85,16 @@ h3 { padding: 0; margin: 0; color: grey; font-size: 5mm; }
             </tr>
         </table> 
     </page_footer>
-    <page_header style="font-family: Times;">
-    <div style="text-align: center; color: blue">
-		<h1>Sree Chitra Thirunal College Of Engineering</h1>
+    <page_header style="font-family: helvetica; ">
+    <div style="text-align: center; color: #2A3375">
+		<h1>SREE CHITRA THIRUNAL COLLEGE OF ENGINEERING</h1>
 	</div>
     <div style="text-align: center; color: grey">
 		<H3><?php echo ($mon." ".$year) ?> Grievance Report</H3>
 	</div>
 	</page_header>
 	<!-- table -->
-    <table style="width: 100%;" align="center">
+    <table style="width: 90%; margin-top:10mm ;" align="center">
     	<thead>
             <tr style="background: #cccccc">
             	<th class = "data">SL NO</th>
@@ -130,7 +130,7 @@ h3 { padding: 0; margin: 0; color: grey; font-size: 5mm; }
     </table>
     <?php if(!$flag): ?>
             <div style="text-align: center;">
-               <H2> No entry this month. </H2>
+               <H2 style = "color: black;"> No entry this month. </H2>
             </div>
     <?php endif; ?>
 </page>

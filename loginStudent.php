@@ -6,9 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>uiCookies:Sublime &mdash; Free Bootstrap Theme, Free Responsive Bootstrap Website Template</title>
-    <meta name="description" content="Free Bootstrap Theme by uicookies.com">
-    <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
+		<title>Grievance Cell</title>
     
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet"> 
     <link rel="stylesheet" href="css/styles-merged.css">
@@ -22,7 +20,7 @@
 	<!-- START: header -->
 	<header role="banner" class="probootstrap-header probootstrap-header-no-intro">
     <div class="container-fluid">
-        <a href="index.html" class="probootstrap-logo">Sublime<span>.</span></a>
+        <a href="index.html" class="probootstrap-logo">Grievance Cell<span>.</span></a>
         <nav role="navigation" class="probootstrap-nav">
           <ul class="probootstrap-main-nav">
             <li class="probootstrap-cta"><a href="index.html">Log Out</a></li>
@@ -41,9 +39,9 @@
 			<?php 
 			echo $_SESSION['username'];
 			?></strong></h2> <?php endif ?>
+				</div>
+			</div>
 		</div>
- 	  </div>
-	</div>
 
 		<?php if (mysqli_num_rows($results) > 0) : ?>			
 			<div class = "container m-b-20">

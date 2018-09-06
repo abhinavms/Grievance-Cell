@@ -8,43 +8,48 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Grievance Cell</title>
-
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet"> 
-
-	
-	<link rel="stylesheet" type="text/css" href="css/vendor/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="css/vendor/animate.css">
-	<link rel="stylesheet" type="text/css" href="css/vendor/select2.min.css">
-	<link rel="stylesheet" type="text/css" href="css/vendor/perfect-scrollbar.css">
-
-	<link rel="stylesheet" href="css/styles-merged.css">
-    <link rel="stylesheet" href="css/style.min.css">
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/custom.css">
-
-  </head>
-
+		<link rel="stylesheet" href="css/styles-merged.css">
+		<link rel="stylesheet" href="css/style.min.css">
+		<link rel="stylesheet" type="text/css" href="css/util.css">
+		<link rel="stylesheet" type="text/css" href="css/custom.css">
+	</head>
 
 <body>
 
 	<!-- START: header -->
-  <header role="banner" class="probootstrap-header probootstrap-header-no-intro">
+	<header role="banner" class="probootstrap-header probootstrap-header-no-intro">
     <div class="container-fluid">
-        <a href="index.html" class="probootstrap-logo">Sublime<span>.</span></a>
+        <a href="index.html" class="probootstrap-logo">Grievance Cell<span>.</span></a>
         <a href="#" class="probootstrap-burger-menu visible-xs" ><i>Menu</i></a>
         <div class="mobile-menu-overlay"></div>
         <nav role="navigation" class="probootstrap-nav hidden-xs">
           <ul class="probootstrap-main-nav">
-		    <li><a href="report.php">Montly Report</a></li>
+						<li><a href="report.php">Montly Report</a></li>
             <li class="probootstrap-cta"><a href="index.html">Log Out</a></li>
           </ul>
+          <div class="extra-text visible-xs">
+            <a href="#" class="probootstrap-burger-menu"><i>Menu</i></a>
+          </div>
         </nav>
-	</div>
+    </div>
   </header>
   <!-- END: header -->
-	<!-- Year selector -->
+
+ <div class="container m-t-50">
+	
+    <div class="section-heading text-center ">
+		<?php  if (isset($_SESSION['userid'])) : ?>
+		<H2>Welcome <strong>
+		<?php echo $_SESSION['username'] ?>
+		 </strong></H2>
+		 <?php endif ?>
+	 	</div>
+		<h3>
+		<div class="section-heading text-center m-t-30 m-b-40">
+		<!-- Year selector -->
     <form action="#" method="post">
+		Select Year -
 		<SELECT name = "yearSelected">
 				<?php 
 					$yearStart = 2002;	//One less than actual year
@@ -57,21 +62,13 @@
 	 					}
 	 			?>
 		</SELECT>
-		<input type = "submit" name = "submit" value = "Submit">
-	</form>
-    <div class="section-heading text-center ">
-		<?php  if (isset($_SESSION['userid'])) : ?>
-		<H2>Welcome <strong>
-		<?php echo $_SESSION['username'] ?>
-		 </strong></H2>
-		 <?php endif ?>
-	 </div>
+		<input class = "btn btn-primary btn-sm m-l-5" type = "submit" name = "submit" value = "Submit" style = "padding: 5px 30px">
+		</form>
+		<!-- End of selector -->
+		</div> </h3>
 
 	<!-- START: Table -->
-	<div class="limiter">
-		<div class="container-table100">
-			<div class="wrap-table100">
-				<div class="table100">
+				 <div class="table100 m-b-20 m-t-20">
 					<h1 style="text-align: center;" colspan = "3"><?php echo $yearSelected; ?> </h1>
 					<table>
 						<thead>
@@ -109,16 +106,12 @@
 						</tbody>
 					</table>
 				</div>
-			</div>
-		</div>
-	</div>
 	<!-- END: Table -->
+</div>
 
-	<script src="js/vendor/jquery.min.js"></script>
-	<script src="js/vendor/popper.js"></script>
-	<script src="js/vendor/bootstrap.min.js"></script>
-	<script src="js/vendor/select2.min.js"></script>
-	<script src="js/main.js"></script>
+	<script src="js/scripts.min.js"></script>
+  <script src="js/main.min.js"></script>
+  <script src="js/custom.js"></script>
 
 </body>
 </html>
