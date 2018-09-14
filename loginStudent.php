@@ -89,6 +89,11 @@
 							<label for="Desc">Description</label>
 							<textarea class="form-control" name="desc" rows="3" placeholder="Description of grievance"></textarea>
 						</div>
+						<div>
+							<p>Would you like to remain anonymous?</p>
+							<input type="radio" name="anon" value="yes"> Yes
+							<input type="radio" name="anon" value="no" checked> No
+						</div>
 						<p style="color: red"><?php echo $_SESSION['warn']; ?></p>
 						<input id="submit" name="submit" type="submit" class="btn btn-primary" value="Submit">
 				  </form>
