@@ -34,7 +34,7 @@
 			<table>
 			<tr>
 				<th> <h4>Name </h4> </th>
-				<td> <h4><?php echo $row2['name']; ?></h4> </td>
+				<td> <h4><?php echo $row['username']; ?></h4> </td>
 			</tr>    
 			<tr>
 				<th> <h4>Department</h4> </th>
