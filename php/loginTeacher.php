@@ -30,7 +30,7 @@
 	$yearStart = 2017;	//One less than actual year
 	$yearNow = date('Y');
 
-	$query = "SELECT * FROM `grv` WHERE year(datetime) = '$yearSelected' ORDER BY `done`,`datetime` desc";
+	$query = "SELECT * FROM `grv` WHERE year(datetime) = '$yearSelected' ORDER BY `datetime`,`done` DESC";
 	$results = mysqli_query($db,$query);
 
 	function switchCall($var){

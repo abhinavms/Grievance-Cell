@@ -19,7 +19,7 @@
 				die ("Error Connecting.");
 
 			$userid = $_SESSION['userid'];
-			$query = "SELECT * FROM `grv` WHERE userid='$userid' ORDER BY reply";
+			$query = "SELECT * FROM `grv` WHERE userid='$userid' ORDER BY `reply`,`datetime` DESC";
 			$results = mysqli_query($db_grv,$query);
 
 	if(array_key_exists('subject',$_POST) OR array_key_exists('desc',$_POST)){	
