@@ -85,7 +85,7 @@
           <div class="probootstrap-footer-widget">
             <h3>Contact</h3>
             <ul class="probootstrap-contact-info">
-              <li><i class="icon-location2"></i> <span>NH 66, CTO Colony, Pappanamcode, Thiruvananthapuram, Kerala 695018</span></li>
+              <li><i class="icon-location2"></i> <span>Pappanamcode, Thiruvananthapuram, Kerala 695018</span></li>
               <li><i class="icon-mail"></i><span>principal@sctce.ac.in</span></li>
               <li><i class="icon-phone2"></i><span>(0471) 249 0572</span></li>
             </ul>
@@ -96,7 +96,7 @@
       <div class="row mt40">
         <div class="col-md-12 text-center">
           <p>
-            <small>&copy; 2017 <a href="http://sctce.ac.in/" target="_blank">SCTCE</a>. All Rights Reserved </small>
+            <small>&copy; 2018 <a href="http://sctce.ac.in/" target="_blank">SCTCE</a>. Designed by <a href="https://www.linkedin.com/in/abhinavms/" target="_blank">Abhinav MS</a> and  <a href="https://www.linkedin.com/in/ashir-ali/" target="_blank">Ashir Ali</a>. All Rights Reserved </small>
           </p>
         </div>
       </div>
