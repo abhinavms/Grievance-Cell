@@ -1837,3 +1837,7 @@ a:hover, a:focus, a:active {
     width: 100%;
   }
 }
+
+div input[type=radio] {
+  display: inline-block;
+}
