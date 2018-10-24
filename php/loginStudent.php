@@ -33,9 +33,13 @@
 			$username = $_SESSION['username'];
 			$dept = $_SESSION['dept'];
 			$semester = $_SESSION['semester'];
+			$semester = "S".$semester;
 			$sub = mysqli_real_escape_string($db_grv,$_POST['subject']);
 			$desc = mysqli_real_escape_string($db_grv,$_POST['desc']);			
 
+			if($_POST['anon'] == "yes"){
+				$username = "Anonymous";
+			}
 			$query = "INSERT INTO `grv` (`slno`, `datetime`, `userid`, `username`, `sub`, `description`, `done`,`reply`,`dept`,`semester`)
 								VALUES (NULL, now(),'$userid','$username','$sub','$desc','0','','$dept','$semester'	)";
 
